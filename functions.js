@@ -1,3 +1,4 @@
+// https://www.youtube.com/watch?v=6v4vBXL-qkY
 var oneBtn = document.getElementById('calc-one');
 var twoBtn = document.getElementById('calc-two');
 var threeBtn = document.getElementById('calc-three');
@@ -12,6 +13,7 @@ var zeroBtn = document.getElementById('calc-zero');
 var decimalBtn = document.getElementById('calc-decimal');
 var clearBtn = document.getElementById('calc-clear');
 var backspaceBtn = document.getElementById('calc-backspace');
+var displayValElement = document.getElementById('calc-display-val');
 
 var plusBtn = document.getElementById('calc-multiply');
 var minusBtn = document.getElementById('calc-minus');
@@ -19,4 +21,25 @@ var multiplyBtn = document.getElementById('calc-multiply');
 var divideBtn = document.getElementById('calc-divide');
 var equalBtn = document.getElementById('calc-equal');
 
-var displayValElement = document.getElementById('calc-display-val');
+// all of the calc numbers 0 ... 9
+var calcNumberBtns = document.getElementsByClassName('calc-btn-num');
+var calcOperatorBtns = document.getElementsByClassName('calc-btn-operator');
+
+// add click event listener to each number btn
+for( let i = 0; i <= calcNumberBtns.length; i++ ) {
+	calcNumberBtns[i],addEventListener('click', updateDisplayVal, false)
+}
+
+//add click event listener to each operator
+for( let i = 0; i <= calcOperatorBtns.length; i++ ) {
+	calcOperatorBtns[i],addEventListener('click', performOperation, false)
+}
+
+// Stop to 28:00 minute
+var updateDisplayVal = (clickedObj) => {
+	console.log(clickedObj)	
+}
+
+var performOperation = () => {
+	console.log('test')
+}
