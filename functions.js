@@ -26,20 +26,43 @@ var calcNumberBtns = document.getElementsByClassName('calc-btn-num');
 var calcOperatorBtns = document.getElementsByClassName('calc-btn-operator');
 
 // add click event listener to each number btn
-for( let i = 0; i <= calcNumberBtns.length; i++ ) {
-	calcNumberBtns[i],addEventListener('click', updateDisplayVal, false)
+for(var i = 0; i < calcNumberBtns.length; i++) {
+	calcNumberBtns[i].addEventListener('click', updateDisplayVal, false)
 }
 
 //add click event listener to each operator
-for( let i = 0; i <= calcOperatorBtns.length; i++ ) {
-	calcOperatorBtns[i],addEventListener('click', performOperation, false)
-}
+// for( let i = 0; i <= calcOperatorBtns.length; i++ ) {
+// 	calcOperatorBtns[i].addEventListener('click', performOperation, false)
+// }
 
 // Stop to 28:00 minute
-var updateDisplayVal = (clickedObj) => {
-	console.log(clickedObj)	
+// var updateDisplayVal = () => {
+// 	alert("test")
+// }
+
+function updateDisplayVal(clickedNumber) {
+	var numberValue = Number(clickedNumber.target.textContent);
+	displayValElement.textContent += numberValue;
+
+	console.log(typeof(displayValElement.textContent))
 }
 
+// Backspace delete the last symbol
+
+// Clear - the whole value
+
 var performOperation = () => {
-	console.log('test')
+	
 }
+
+
+
+// var btns = document.querySelectorAll('button');
+
+// console.log(btns)
+
+// for(var i = 0; i < btns.length; i++) {
+// 	btns[i].addEventListener('click', function (event) {
+// 		console.log('clicked');
+// 	}, false);
+// }
