@@ -21,6 +21,8 @@ var multiplyBtn = document.getElementById('calc-multiply');
 var divideBtn = document.getElementById('calc-divide');
 var equalBtn = document.getElementById('calc-equal');
 
+var pending;
+
 // all of the calc numbers 0 ... 9
 var calcNumberBtns = document.getElementsByClassName('calc-btn-num');
 var calcOperatorBtns = document.getElementsByClassName('calc-btn-operator');
@@ -30,22 +32,27 @@ for(var i = 0; i < calcNumberBtns.length; i++) {
 	calcNumberBtns[i].addEventListener('click', updateDisplayVal, false)
 }
 
+function updateDisplayVal(clickedNumber) {
+	var currentNumber = Number(clickedNumber.target.textContent);
+
+	if(displayValElement.textContent === '0') {
+		displayValElement.textContent = ""
+	}
+
+	displayValElement.textContent += currentNumber;
+}
+
+
+
 //add click event listener to each operator
 // for( let i = 0; i <= calcOperatorBtns.length; i++ ) {
 // 	calcOperatorBtns[i].addEventListener('click', performOperation, false)
 // }
 
-// Stop to 28:00 minute
-// var updateDisplayVal = () => {
-// 	alert("test")
+// function performOperation(operator) {
+// 	displayValElement.textContent = operator.target.textContent;
 // }
 
-function updateDisplayVal(clickedNumber) {
-	var numberValue = Number(clickedNumber.target.textContent);
-	displayValElement.textContent += numberValue;
-
-	console.log(typeof(displayValElement.textContent))
-}
 
 // Backspace delete the last symbol
 
